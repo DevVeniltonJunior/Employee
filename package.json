@@ -15,7 +15,10 @@
     "test:presentation": "npm run test ./src/presentation",
     "test:vo": "npm run test ./src/domain/valueObjects",
     "test:repositories": "npm run test ./src/infra/repositories",
-    "test:controllers": "npm run test ./src/presentation/controllers"
+    "test:controllers": "npm run test ./src/presentation/controllers",
+    "prisma:migration": "npx prisma migrate dev --name",
+    "prisma:resolve": "prisma migrate resolve --applied 20230724003644_init",
+    "prisma:apply": "prisma migrate deploy && prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -39,5 +42,8 @@
     "@prisma/client": "^5.2.0",
     "express": "^4.18.2",
     "module-alias": "^2.2.3"
+  },
+  "prisma": {
+    "schema": "src/infra/config/prisma/schema.prisma"
   }
 }
