@@ -4,7 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf dist && tsc -p tsconfig-build.json",
+    "eslint": "npx eslint .",
+    "test": "jest --passWithNoTests --no-cache -runInBand",
+    "test:watch": "npm run test -- --watch",
+    "test:coverage": "npm run test -- --coverage",
+    "test:domain": "npm run test ./src/domain",
+    "test:infra": "npm run test ./src/infra",
+    "test:presentation": "npm run test ./src/presentation",
+    "test:vo": "npm run test ./src/domain/valueObjects",
+    "test:repositories": "npm run test ./src/infra/repositories",
+    "test:controllers": "npm run test ./src/presentation/controllers"
   },
   "keywords": [],
   "author": "",
