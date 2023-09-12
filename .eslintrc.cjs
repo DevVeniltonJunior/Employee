@@ -7,6 +7,7 @@ module.exports = {
   "rules": {
     "semi": ["error", "never"],
     "quotes": ["error", "single"],
-    "eol-last": ["error","always"]
+    "eol-last": ["error","always"],
+    "@typescript-eslint/no-namespace": "off"
 }
 };
