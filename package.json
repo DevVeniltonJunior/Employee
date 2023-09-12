@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig-build.json",
+    "dev": "npm run build && node ./dist/infra/config/server/App.js",
     "eslint": "npx eslint .",
     "test": "jest --passWithNoTests --no-cache -runInBand",
     "test:watch": "npm run test -- --watch",
