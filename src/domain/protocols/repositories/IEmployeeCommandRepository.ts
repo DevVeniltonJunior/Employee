@@ -4,6 +4,6 @@ import { EmployeeId } from '@/domain/valueObjects'
 
 export interface IEmployeeCommandRepository {
   create(entity: Employee): Promise<Employee>
-  update(dto: EmployeeDTO): Promise<void>
+  update(dto: EmployeeDTO, id: EmployeeId): Promise<void>
   delete(id: EmployeeId): Promise<void>
 }

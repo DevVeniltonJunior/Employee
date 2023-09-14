@@ -8,6 +8,7 @@ module.exports = {
     "semi": ["error", "never"],
     "quotes": ["error", "single"],
     "eol-last": ["error","always"],
-    "@typescript-eslint/no-namespace": "off"
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-explicit-any": "off"
 }
 };
