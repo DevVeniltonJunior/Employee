@@ -22,9 +22,9 @@ export class EmployeeDTO {
 
   public toJson(): TEmployee.DTO {
     return {
-      employeeId: this._employeeId.toNumber(),
-      employeeName: this._employeeName ? this._employeeName.toString() : undefined,
-      employeeRole: this._employeeRole ? this._employeeRole.toString() : undefined
+      id: this._employeeId.toNumber(),
+      name: this._employeeName ? this._employeeName.toString() : undefined,
+      role: this._employeeRole ? this._employeeRole.toString() : undefined
     }
   }
 }

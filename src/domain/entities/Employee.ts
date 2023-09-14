@@ -22,9 +22,9 @@ export class Employee {
 
   public toJson(): TEmployee.Entity {
     return {
-      employeeId: this._employeeId.toNumber(),
-      employeeName: this._employeeName.toString(),
-      employeeRole: this._employeeRole.toString()
+      id: this._employeeId.toNumber(),
+      name: this._employeeName.toString(),
+      role: this._employeeRole.toString()
     }
   }
 }

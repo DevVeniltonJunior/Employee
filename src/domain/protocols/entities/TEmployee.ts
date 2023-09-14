@@ -1,19 +1,19 @@
 export namespace TEmployee {
   export type Entity = {
-    employeeId: number
-    employeeName: string
-    employeeRole: string
+    id: number
+    name: string
+    role: string
   }
 
   export type Model = {
-    employeeId: number
-    employeeName: string
-    employeeRole: string
+    id: number
+    name: string
+    role: string
   }
 
   export type DTO = {
-    employeeId: number
-    employeeName?: string
-    employeeRole?: string
+    id: number
+    name?: string
+    role?: string
   }
 }
