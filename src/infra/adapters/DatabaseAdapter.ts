@@ -21,7 +21,7 @@ private readonly prisma = new PrismaClient()
     }
   }
 
-  public async findMany(filter: EmployeeFilter): Promise<TEmployee.Model[]> {
+  public async findMany(filter: EmployeeFilter): Promise<TEmployee.Model[] | []> {
     try {
       const data = await this.prisma.employee.findMany({
         where: {
@@ -30,8 +30,7 @@ private readonly prisma = new PrismaClient()
           role: filter.role
         }
       })
-      
-      if(!data || data.length <= 0) throw new DatabaseException('Entity not found')
+
       return data
     } catch (err: any) {
       throw new DatabaseException(err.message)

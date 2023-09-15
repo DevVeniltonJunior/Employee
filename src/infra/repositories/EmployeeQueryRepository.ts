@@ -1,13 +1,12 @@
 import { Employee } from '@/domain/entities'
 import { IEmployeeQueryRepository } from '@/domain/protocols'
-import { EmployeeId } from '@/domain/valueObjects'
+import { EmployeeId, EmployeeName, EmployeeRole } from '@/domain/valueObjects'
 import { DatabaseAdapter, EmployeeAdapter } from '@/infra/adapters'
-import { DatabaseException } from '@/infra/exceptions'
 
 type EmployeeFilter = {
-  id?: number[]
-  name?: string
-  role?: string
+  id?: EmployeeId[]
+  name?: EmployeeName
+  role?: EmployeeRole
 }
 
 export class EmployeeQueryRepository implements IEmployeeQueryRepository {
@@ -20,8 +19,12 @@ export class EmployeeQueryRepository implements IEmployeeQueryRepository {
   }
 
   public async findMany(filter: EmployeeFilter): Promise<Employee[]> {
-    const model = await this.database.findMany(filter)
-    if(!model || model.length <= 0) throw new DatabaseException('Entity not found')
+    const model = await this.database.findMany({
+      id: filter.id?.map(value => value.toNumber()),
+      name: filter.name?.toString(),
+      role: filter.role?.toString()
+    })
+    if(!model || model.length <= 0) return []
 
     const entity = model.map((item) => EmployeeAdapter.toEntity(item))
 

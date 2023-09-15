@@ -1,13 +1,13 @@
 import { Employee } from '@/domain/entities/Employee'
-import { EmployeeId } from '@/domain/valueObjects'
+import { EmployeeId, EmployeeName, EmployeeRole } from '@/domain/valueObjects'
 
 type EmployeeFilter = {
-  id?: number[]
-  name?: string
-  role?: string
+  id?: EmployeeId[]
+  name?: EmployeeName
+  role?: EmployeeRole
 }
 
 export interface IEmployeeQueryRepository {
   findOne(id: EmployeeId): Promise<Employee>
-  findMany(filter: EmployeeFilter): Promise<Employee[]>
+  findMany(filter: EmployeeFilter): Promise<Employee[] | []>
 }
