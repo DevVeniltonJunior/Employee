@@ -5,7 +5,8 @@ import {
   GetEmployeeController,
   CreateEmployeeController,
   UpdateEmployeeController,
-  DeleteEmployeeController } from '@/presentation/controllers'
+  DeleteEmployeeController, 
+  PopulateEmployeeController} from '@/presentation/controllers'
 import { TDeleteEmployee, TGetEmployee, TCreateEmployee, TUpdateEmployee } from '@/presentation/protocols'
 
 export const router = Router()
@@ -38,4 +39,9 @@ router.put('/employee', async (req: Request<any, any, any, TUpdateEmployee.Reque
 router.delete('/employee', async (req: Request<any, any, any, TDeleteEmployee.Request.query>, res: Response) => {
     const response = await DeleteEmployeeController.handle(req)
     res.status(response.statusCode).json(response.data)
+})
+
+router.get('/populate', async (req, res) => {
+  const response = await PopulateEmployeeController.handle()
+  res.status(response.statusCode).json(await response.data)
 })
