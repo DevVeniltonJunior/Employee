@@ -30,7 +30,7 @@ describe('[Repository] EmployeeQuery', () => {
     const sut = new EmployeeQueryRepository()
 
     const _anotherId = (await comandRepository.create(fixture)).getId()
-    const entitys = sut.findMany({ id: [_id.toNumber(), _anotherId.toNumber()]})
+    const entitys = sut.findMany({ id: [_id, _anotherId]})
 
     await expect(() => entitys).not.toThrow()
   })
